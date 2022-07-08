@@ -1,0 +1,3 @@
+# Selection sort
+
+This is another sorting algorithm. The algorithm scans through the array to find the lowest value, which is then repositioned at index 0. The algorithm then scans through the rest of the array (i.e. starting from index 1), finds the lowest value and moves that to index 1. The process is repeated until the (n - 1)th highest value has been put in place, but which point the last element of the array should be the highest value and the array should be fully sorted.

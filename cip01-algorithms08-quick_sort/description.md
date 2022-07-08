@@ -1,0 +1,3 @@
+# Quick sort
+
+This is (yet) another sorting algorithm (although fCC says this one is intermediate level). The algorithm should choose a pivot value and divide the array into two arrays: one containing values less than the pivot and one containing values that are more than the pivot. The sorting function should operate recursively until the base case of an empty or one-element array is reached, at which point the function should return.

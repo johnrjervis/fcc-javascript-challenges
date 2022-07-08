@@ -1,0 +1,3 @@
+# Merge sort
+
+This is the last of the sorting algorithm challenges (for now). In the merge sort, the input array of length n is recursively split in half until it is divided into n arrays of length 1. These arrays are combined (in pairs) into sorted arrays, which are then combined with other sorted arrays (presumably this can be done recursively, too) until the final result is achieved. This efficiency of this method comes from the fact that combining arrays that are already sorted should be relatively straightforward.

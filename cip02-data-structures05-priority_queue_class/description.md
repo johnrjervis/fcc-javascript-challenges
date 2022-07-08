@@ -1,0 +1,3 @@
+# Create a priority queue class
+
+The task for this challenge is to create a priority queue class: items in the queue should be order by priority level, with items added to the queue behind existing queue items with the same priority level but ahead of items with a higher value for their priority level (so priority 1 items are placed ahead of priority 2 items). The challenge calls for the priority queue class to have several of the same methods that were needed for the previous challenge (the queue class), including enqueue, dequeue, front, size, and isEmpty. Some of these methods will have to be modified to account for the priority. Methods that 'get' an item from the queue should only return the item's name and not its priority level.

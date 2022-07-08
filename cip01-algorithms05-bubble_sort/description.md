@@ -1,0 +1,3 @@
+# Bubble sort
+
+This sorting algorithm works by iterating through an array comparing each pair of adjacent elements and swapping them if required. The algorithm keeps looping through the array until it reaches a point where no further changes are required. I chose to do this recursively: I used a single loop in the sorting function (instead of a double loop as would be required in a non-recursive solution), and called the function on the sorted result unless no changes had been made.
