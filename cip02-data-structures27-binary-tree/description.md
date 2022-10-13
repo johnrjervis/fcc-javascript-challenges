@@ -1,0 +1,3 @@
+# Add a new element to a binary search tree
+
+The aim here is to create a method that allows nodes to be added to a binary search tree. The method should obey the following rules when adding nodes to the tree: each node has a value; each node can have two child nodes - one called left and another called right; a node's left child should always have a lower value than it's parent node; a node to the right should always have a higher value than it#s parent node; the value of every node in the left sub-tree should be lower than that of the sub-tree's root node; ther value of every node in the right sub-tree should be higher than that of the root node.
