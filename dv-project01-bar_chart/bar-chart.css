@@ -1,0 +1,41 @@
+#graph-body {
+  margin: 0;
+  background-color: black;
+}
+
+#graph-container {
+  width: 100vw;
+}
+
+h1 {
+  margin: 10px;
+  text-align: center;
+  color: white;
+}
+
+.bar:hover {
+  fill: rgb(180, 180, 255);
+}
+
+#tooltip {
+  padding: 2px;
+  background-color: rgba(200, 200, 255, 0.7);
+  box-shadow: 0 0 4px 4px  rgba(200, 200, 255, 0.7);
+}
+
+#data-source {
+  margin: 20px 0 20px 75px;
+  color: white;
+}
+
+#source-link {
+  color: lightblue;
+}
+
+#source-link:visited {
+  color: rebeccapurple;
+}
+
+#source-link:active {
+  color: pink;
+}

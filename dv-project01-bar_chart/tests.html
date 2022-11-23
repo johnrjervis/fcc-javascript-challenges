@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Data visualisation: bar chart tests</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.1.css">
+  <link rel="stylesheet" href="bar-chart.css">
+</head>
+
+  <body>
+
+    <div id="qunit"></div>
+    <div id="qunit-fixture">
+      <header id="graph-titles">
+        <h1 id="title"></h1>
+      </header>
+      <div id="graph-container"></div>
+    </div>
+
+  </body>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.19.1.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="dv01-bar-chart.js"></script>
+  <!--- The JSON script is only for testing --->
+  <!--- When dv01-bar-chart.js is used for real, the data should be obtained with fetch --->
+  <!--- Putting the raw_json.js script tag after the dv01-bar-chart.js tag prevents the bar chart script acessing the (offline) JSON data during the tests --->
+  <script src="raw_json.js"></script>
+  <script src="tests.js"></script>
+
+</html>

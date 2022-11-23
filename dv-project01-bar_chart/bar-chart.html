@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="bar-chart.css" type="text/css" rel="stylesheet"></link>
+    <title>D3 Bar Chart</title>
+  </head>
+
+  <body id="graph-body">
+    <header id="graph-titles">
+      <h1 id="title"></h1>
+    </header>
+    <div id="graph-container"></div>
+  </body>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="dv01-bar-chart.js"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <script>
+    //createBarChart(testDataset);
+    fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json')
+      .then(response => response.json())
+      .then(rawData => {
+        createBarChart(rawData)  
+      });/**/
+  </script>
+</html>
