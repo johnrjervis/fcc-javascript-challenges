@@ -24,17 +24,17 @@ QUnit.test("Test 3: calcGraphWidth should return the a value equal to the number
   assert.equal(calcGraphWidth(1000), 6 * 1000 + 2 * XPADDING);
 });
 
-QUnit.test("Test 4: calcGraphHeight returns the floor of 90% of the window height if the screen is taller than the number of bars * 2 plus 100 plus two lots of vertical padding", assert => {
+QUnit.test("Test 4: calcGraphHeight returns the floor 85 of% of the window height if the screen is taller than the number of bars * 2 plus 100 plus two lots of vertical padding", assert => {
   if (window.innerHeight < 20 + YPADDING) {
     alert("The browser display is too short to properly test the setup for small bar charts!");
   }
 
-  assert.equal(calcGraphHeight(10), `${Math.floor(0.9 * window.innerHeight)}`);
+  assert.equal(calcGraphHeight(10), `${Math.floor(0.85 * window.innerHeight)}`);
 });
 
-QUnit.test("Test 5: calcGraphHeight returns the a value equal to the number of bars * 2 plus 100 plus twice the vertical padding if this is larger than 90% of the browser window's innerHeight", assert => {
+QUnit.test("Test 5: calcGraphHeight returns the a value equal to the number of bars * 2 plus 100 plus twice the vertical padding if this is larger than 85% of the browser window's innerHeight", assert => {
   // 100px added to set a reasonable minimum chart height  on small screens if the number of bars is small
-  if (window.innerWidth > 2000 + 2 * YPADDING) {
+  if (0.85 * window.innerWidth > 2000 + 2 * YPADDING) {
     alert("The browser display is too tall to properly test the setup for large bar charts!");
   }
 
@@ -55,18 +55,18 @@ QUnit.test("Test 7: for a small dataset, createBarChart sets the SVG element's w
   assert.equal(window.getComputedStyle(firstSvgElem).getPropertyValue('width'), `${window.innerWidth}px`);
 });
 
-QUnit.test("Test 8: createBarChart should set the height of the SVG element (in px) to be equal to the value returned by calcGraphWidth", assert => {
+QUnit.test("Test 8: createBarChart sets the height of the SVG element (in px) to be equal to the value returned by calcGraphHeight", assert => {
   createBarChart(rawJson);
   const firstSvgElem = document.getElementsByTagName('svg')[0];
 
   assert.equal(window.getComputedStyle(firstSvgElem).getPropertyValue('height'), `${calcGraphHeight(rawJson.data.length)}px`);
 });
 
-QUnit.test("Test 9: for a small dataset, createBarChart sets the SVG element's height (in px) to be equal to the floor of 90% of the browser window's innerHeight property", assert => {
+QUnit.test("Test 9: for a small dataset, createBarChart sets the SVG element's height (in px) to be equal to the floor of 85% of the browser window's innerHeight property", assert => {
   createBarChart(testData);
   const firstSvgElem = document.getElementsByTagName('svg')[0];
 
-  assert.equal(window.getComputedStyle(firstSvgElem).getPropertyValue('height'), `${Math.floor(0.9 * window.innerHeight)}px`);
+  assert.equal(window.getComputedStyle(firstSvgElem).getPropertyValue('height'), `${Math.floor(0.85 * window.innerHeight)}px`);
 });
 
 QUnit.test("Test 10: there is one element with a class of bar for each element in the dataset supplied to createBarChart", assert => {
@@ -165,13 +165,12 @@ QUnit.test("Test 21: the height of a bar element that represents the datapoint w
   });
 });
 
-QUnit.test("Test 22: the y-position of each bar element is equal to the difference between its height and the height of the SVG element minus one lot of vertical padding", assert => {
+QUnit.test("Test 22: the y-position of each bar element is equal to the difference between its height and the height of the SVG element minus one lot of vertical padding (when rounded to the nearest whole number)", assert => {
   createBarChart(testData);
   const barClassElems = document.getElementsByClassName('bar');
 
   testData.data.forEach(function(datapoint, i) {
-    // Values rounded to 5 d.p. to avoid failures caused by binary floating point(?) errors
-    assert.equal(Math.round(barClassElems[i].getAttribute('y'), 5), Math.round(calcGraphHeight(testLength) - barClassElems[i].getAttribute('height') - YPADDING), 5);
+    assert.equal(Math.round(barClassElems[i].getAttribute('y')), Math.round(calcGraphHeight(testLength) - barClassElems[i].getAttribute('height') - YPADDING));
   });
 });
 

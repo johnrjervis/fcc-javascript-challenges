@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Data visualisation: scatter plot tests</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.1.css">
+    <link rel="stylesheet" href="scatter-plot.css">
+  </head>
+
+  <body>
+
+    <div id="qunit"></div>
+    <div id="qunit-fixture">
+      <header id="graph-titles">
+        <h1 id="title">Fastest ascents of Alpe d'Huez by professional cyclists</h1>
+      </header>
+      <div id="graph-container"></div>
+      <p id="data-source">Data source: freeCodeCamp (<a id="source-link" href="https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json">https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json</a>)</p>
+    </div>
+
+  </body>
+
+  <script src="https://code.jquery.com/qunit/qunit-2.19.1.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="dv02-scatter-plot.js"></script>
+  <!--- The JSON script is only for testing --->
+  <!--- When dv02-scatter-plot.js is used for real, the data should be obtained with fetch --->
+  <!--- Putting the raw_json.js script tag after the dv02-scatter-plot.js tag prevents the scatter plot script acessing the (offline) JSON data during the tests --->
+  <script src="raw_json.js"></script>
+  <script src="tests.js"></script>
+
+</html>

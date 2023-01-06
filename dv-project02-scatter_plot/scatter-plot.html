@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="scatter-plot.css" type="text/css" rel="stylesheet"></link>
+    <title>D3 Scatter Plot</title>
+  </head>
+
+  <body id="graph-body">
+    <header id="graph-titles">
+      <h1 id="title">Fastest ascents of Alpe d'Huez by professional cyclists</h1>
+      <h3>With results classified according to the riders' doping history</h3>
+    </header>
+    <div id="graph-container"></div>
+    <div id="legend-explanation">
+      <p>*The doping history classification is based on the dataset supplied by <acronym title=freeCodeCamp>fCC</acronym>. Hover the mouse over any datapoint to find out more about that result. Where two or more riders have recorded the same time, only one result will be visible.</p>
+      <p>Any riders who have no record of failed tests, confessions of doping, titles being stripped, or allegations being made against them are placed in the "no known doping history" category. Of course, this does not guarantee that the rider in question was clean.</p>
+      <p>Any riders who are recorded as having allegations of doping made against them are placed in the "unproven allegations" category. No judgement is made here as to whether the allegations are true or not. Riders who were implicated in major investigations wthout being charged, linked with doctors who were known to have supplied other riders with performance enhancing substances, or dropped by their teams because of abnormalities in (for example) their hermatocrit levels are also included in this category.</p>
+      <p>Any riders who are recorded as having failed a drugs test, confessed to doping, or were stripped of one or more Tour de France titles are placed in the "failed test / confessed to doping" category. Riders who failed tests for substances that were legal at the time are still placed in this category, as the corresponding result today would (probably) be considered illegal. (Although this ignores the fact that failed tests for some substances, e.g. salbutemol, may be acceptable if a rider has a <acronym title="Theraputic Use Exemption">TUE</acronym> or can provide a valid explanation for their abnormal result.)</p>
+    </div>
+    <p id="data-source">Data source: freeCodeCamp (<a id="source-link" target="_blank" href="https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json">https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json</a>).</p>
+  </body>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="dv02-scatter-plot.js"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <script>
+    fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json')
+      .then(response => response.json())
+      .then(rawData => {
+        const graph = new ScatterPlot(rawData);
+        graph.drawGraph();
+      });
+  </script>
+</html>

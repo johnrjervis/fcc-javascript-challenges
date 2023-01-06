@@ -1,0 +1,53 @@
+*::selection {
+  background-color: blue;
+}
+
+#graph-body {
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+
+#graph-container {
+  width: 100vw;
+}
+
+h1, h3 {
+  margin: 10px;
+  text-align: center;
+}
+
+.dot:hover {
+  fill: rgb(180, 180, 180);
+}
+
+.tool-tip {
+  padding: 2px;
+  background-color: rgba(100, 100, 255, 0.75);
+  box-shadow: 0 0 4px 4px  rgba(100, 100, 255, 0.75);
+}
+
+.tool-tip p {
+  margin: 2px;
+}
+
+#data-source, #legend-explanation {
+  margin: 20px 0 20px 75px;
+}
+
+#source-link {
+  color: lightblue;
+}
+
+#source-link:visited {
+  color: rebeccapurple;
+}
+
+#source-link:active {
+  color: pink;
+}
+
+#legend-title::after {
+  color: white;
+  content: '*';
+}

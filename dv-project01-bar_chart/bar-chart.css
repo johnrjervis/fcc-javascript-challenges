@@ -14,7 +14,7 @@ h1 {
 }
 
 .bar:hover {
-  fill: rgb(180, 180, 255);
+  fill: rgb(100, 245, 255);
 }
 
 #tooltip {

@@ -20,9 +20,9 @@ const calcGraphWidth = datapoints => {
 
 const calcGraphHeight = datapoints => {
   /* Returns the larger value of window.innerWidth and (datapoints * 2 + 100 + 2 * PADDING) */
-  // I'm assuming that if there are lots of datapoints, then they will (almost all) all have different values
-  // Adding 200 allows for a minimum max bar heigh of 100 + #bars * 2(px) along with 50px of padding either side
-  return Math.max(2 * datapoints + 100 + 2 * YPADDING, Math.floor(0.9 * window.innerHeight));
+  // 2px height per datapoint should provide space for bar height to be visibly different for different values
+  // Adding 100 allows for a reasonable minimum max bar height even if the number of datapoints is low
+  return Math.max(2 * datapoints + 100 + 2 * YPADDING, Math.floor(0.85 * window.innerHeight));
 }
 
 const calcBarWidth = datapoints => {
@@ -51,6 +51,7 @@ const getYAxisLabel = dataset => {
 };
 
 const createBarChart = dataset => {
+  /* Creates a bar chart with width and height that takes into account the number of datapoints and the size of the browser window */
   const data = dataset.data;
   //console.log(dataset)
   const svgWidth = calcGraphWidth(data.length);
@@ -59,7 +60,7 @@ const createBarChart = dataset => {
 
   const dateLabels = data.map(d => {return new Date(d[0])})
   const startDate = dateLabels[0];
-  const endDate = dateLabels[dateLabels.length - 1]
+  const endDate = dateLabels[dateLabels.length - 1];
   /* The following is a workaround to stop the last bar appearing to the right of the end of the x-axis
   This means the last bar appears to be off the scale of the x-axis, which is ugly,
   Ultimately, I decided that that was less ugly than the workaround code (and its effect on the tests)
@@ -116,7 +117,7 @@ const createBarChart = dataset => {
      .attr('height', d => svgHeight - yScale(d[1]) - YPADDING)
      .attr('data-date', d => d[0])
      .attr('data-gdp', d => d[1])
-     .attr('fill', 'rgb(0, 0, 255)')
+     .attr('fill', 'rgb(0, 40, 255)')
      .attr('filter', 'url(#slightBlur)')
      .on('mouseover', (evt, d) => {
        toolTip.text(`${makeDateLabel(d[0])}: $${d[1]}bn`)
